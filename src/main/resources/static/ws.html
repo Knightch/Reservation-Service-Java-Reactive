@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WS</title>
+</head>
+<body>
+<script>
+        window.addEventListener('load', (e)=>{
+            var ws = new WebSocket('ws://localhost:8080/Raju')
+            ws.addEventListener('open', ()=>{
+                var nameToGreet = window.prompt('who should we greet?')
+                ws.send(nameToGreet);
+            });
+            ws.addEventListener('message', (msg)=>{
+                console.log('new message:- ', msg.data)
+            })
+        })
+    </script>
+</body>
+</html>
